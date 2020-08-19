@@ -36,11 +36,11 @@ CREATE TABLE IF NOT EXISTS documents (
 ENGINE = InnoDB;
 
 INSERT INTO correspondents 
-VALUES ('1', 'ЦБ'),
-  ('2', 'ГНИ'),
-  ('3', 'ТСЖ');
+VALUES ('1', 'World Bank'),
+  ('2', 'Oracle'),
+  ('3', 'Lotus Pharmaceutical Co.');
   
 INSERT INTO deliveries 
-VALUES ('1', 'Курьер'),
+VALUES ('1', 'Courier'),
   ('2', 'Email'),
-  ('3', 'Телефонограмма');
+  ('3', 'Fax');
