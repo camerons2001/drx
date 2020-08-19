@@ -15,4 +15,4 @@
 
 ### CONTACTS
 EMAIL: cameronsultanov@gmail.com<br>
-LINKEDIN: linkedin.com/in/ksultanov2001
+LINKEDIN: www.linkedin.com/in/ksultanov2001
