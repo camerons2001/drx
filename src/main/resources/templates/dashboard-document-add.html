@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="generator" content="Jekyll v4.1.1">
+    <title>DRX | New Document</title>
+
+    <link rel="canonical" th:href="@{https://getbootstrap.com/docs/4.5/examples/dashboard/}">
+    <link rel="canonical" th:href="@{https://getbootstrap.com/docs/4.5/examples/sticky-footer/}">
+    <link rel="canonical" th:href="@{https://getbootstrap.com/docs/4.5/examples/checkout/}">
+
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/assets/dist/css/bootstrap.min.css}" rel="stylesheet">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+    <link th:href="@{/css/sticky-footer.css}" rel="stylesheet">
+    <link th:href="@{/css/form-validation.css}" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" th:href="@{/}">DRX</a>
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+    <ul class="navbar-nav px-3">
+        <li class="nav-item text-nowrap">
+            <a class="nav-link" href="#">Sign out</a>
+        </li>
+    </ul>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+            <div class="sidebar-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">
+                            <span data-feather="home"></span>
+                            Dashboard<span class="sr-only"></span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" th:href="@{/Documents}">
+                            <span data-feather="file"></span>
+                            Documents
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <span data-feather="users"></span>
+                            Profile
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
+            <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h1 class="h2">DOCUMENT</h1>
+                <div class="btn-toolbar mb-2 mb-md-0">
+                    <button type="button" class="btn btn-sm btn btn-outline-secondary">
+                        <a th:href="@{/Documents}" style="color: inherit; text-decoration: none">Cancel</a>
+                    </button>
+                    <button type="submit" class="btn btn-sm btn btn-outline-secondary" form="submit-form">
+                        <a style="color: inherit; text-decoration: none">Submit</a>
+                    </button>
+                </div>
+            </div>
+            <form action="#" class="needs-validation" novalidate id="submit-form" th:action="@{/Documents/registry}" th:object="${document}" method="post" enctype="multipart/form-data">
+                <div class="form-row">
+                    <div class="col">
+                        <label th:for="registrationId"><strong>Registration №</strong></label>
+                        <input class="form-control" type="text" th:field="*{registrationId}" required />
+                        <p th:if="${#fields.hasErrors('registrationId')}" th:errors="*{registrationId}" style="width: 100%; margin-top: .25em; font-size: 80%; color: #dc3545;"></p>
+                        <div class="invalid-feedback">
+                            This field cannot be empty
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label th:for="documentId"><strong>Document №</strong></label>
+                        <input class="form-control" type="text" th:field="*{documentId}" required />
+                        <p th:if="${#fields.hasErrors('documentId')}" th:errors="*{documentId}" style="width: 100%; margin-top: .25em; font-size: 80%; color: #dc3545;"></p>
+                        <div class="invalid-feedback">
+                            This field cannot be empty
+                        </div>
+                    </div>
+                </div>
+                <div class="form-row" style="margin-top: 15px">
+                    <div class="col">
+                        <label th:for="registrationDate"><strong>Registration Date</strong></label>
+                        <input class="form-control" type="date" th:field="*{registrationDate}" required />
+                        <p th:if="${#fields.hasErrors('registrationDate')}" th:errors="*{registrationDate}" style="width: 100%; margin-top: .25em; font-size: 80%; color: #dc3545;"></p>
+                        <div class="invalid-feedback">
+                            This field cannot be empty
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label th:for="documentDate"><strong>Document Date</strong></label>
+                        <input class="form-control" type="date" th:field="*{documentDate}" required />
+                        <div class="invalid-feedback">
+                            This field cannot be empty
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" style="margin-top: 15px">
+                    <label th:for="deliveryType"><strong>Delivery Type</strong></label>
+                    <select name="deliveryId" class="browser-default custom-select" required>
+                        <option value="">Choose...</option>
+                        <option value="1">Courier</option>
+                        <option value="2">Email</option>
+                        <option value="3">Fax</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        This field cannot be empty
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label th:for="correspondent"><strong>Correspondent</strong></label>
+                    <select name="correspondentId" class="browser-default custom-select" required>
+                        <option value="">Choose...</option>
+                        <option value="1">World Bank</option>
+                        <option value="2">Oracle</option>
+                        <option value="3">Lotus Pharmaceutical Co.</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        This field cannot be empty
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label th:for="documentSubject"><strong>Subject</strong></label>
+                    <input class="form-control" type="text" th:field="*{documentSubject}" required />
+                    <p th:if="${#fields.hasErrors('documentSubject')}" th:errors="*{documentSubject}" style="width: 100%; margin-top: .25em; font-size: 80%; color: #dc3545;"></p>
+                    <div class="invalid-feedback">
+                        This field cannot be empty
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label th:for="documentDescription"><strong>Description</strong></label>
+                    <input class="form-control" type="text" th:field="*{documentDescription}" required/>
+                    <p th:if="${#fields.hasErrors('documentDescription')}" th:errors="*{documentDescription}" style="width: 100%; margin-top: .25em; font-size: 80%; color: #dc3545;"></p>
+                    <div class="invalid-feedback">
+                        This field cannot be empty
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label th:for="documentDeadline"><strong>Execution Deadline</strong></label>
+                    <input class="form-control" type="date" th:field="*{documentDeadline}" />
+                    <p th:if="${#fields.hasErrors('documentDeadline')}" th:errors="*{documentDeadline}" style="width: 100%; margin-top: .25em; font-size: 80%; color: #dc3545;"></p>
+                </div>
+                <div class="form-row">
+                    <div class="col">
+                        <label th:for="documentAuthority"><strong>Access</strong></label>
+                        <select class="browser-default custom-select" th:field="*{documentAuthority}" required>
+                            <option value="">Choose...</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            This field cannot be empty
+                        </div>
+                    </div>
+                    <div class="col">
+                        <label th:for="documentControl"><strong>Control</strong></label>
+                        <select class="browser-default custom-select" th:field="*{documentControl}" required>
+                            <option value="">Choose...</option>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                        <div class="invalid-feedback">
+                            This field cannot be empty
+                        </div>
+                    </div>
+                </div>
+                <p style="margin-top: 15px"><strong>Upload Document</strong></p>
+                <div class="custom-file">
+                    <input type="file" name="files" class="custom-file-input" required />
+                    <label class="custom-file-label" th:for="documentFile">Choose file</label>
+                    <div class="invalid-feedback">
+                        This field cannot be empty
+                    </div>
+                </div>
+            </form>
+        </main>
+    </div>
+</div>
+
+<footer id="sticky-footer" class="py-4 text-white-50">
+    <div class="container text-center">
+        <span class="text-muted">&copy; Kamron Sultanov. All rights reserved.</span>
+    </div>
+</footer>
+
+<script th:src="@{https://code.jquery.com/jquery-3.5.1.slim.min.js}" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script th:src="@{/assets/dist/js/jquery.slim.min.js}"><\/script>')</script><script th:src="@{/assets/dist/js/bootstrap.bundle.min.js}"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js}"></script>
+<script th:src="@{https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js}"></script>
+<script th:src="@{/js/dashboard.js}"></script>
+<script th:src="@{/js/form-validation.js}"></script>
+</body>
+</html>
