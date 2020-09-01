@@ -17,13 +17,19 @@ import java.io.IOException;
 import java.util.Collections;
 
 /**
+ * The type Root servlet config.
+ *
  * @author Kamron Sultanov
  * @date August 14, 2020
  */
-
 @Configuration
 public class RootServletConfig {
 
+    /**
+     * Servlet web server factory tomcat servlet web server factory.
+     *
+     * @return the tomcat servlet web server factory
+     */
     @Bean
     public TomcatServletWebServerFactory servletWebServerFactory() {
         return new TomcatServletWebServerFactory() {

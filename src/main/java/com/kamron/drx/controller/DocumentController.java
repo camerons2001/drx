@@ -22,10 +22,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
+ * The type Document controller.
+ *
  * @author Kamron Sultanov
  * @date July 15, 2020
  */
-
 @Controller
 public class DocumentController {
 
@@ -35,6 +36,13 @@ public class DocumentController {
 
     private final DeliveryServiceImpl deliveryService;
 
+    /**
+     * Instantiates a new Document controller.
+     *
+     * @param documentService      the document service
+     * @param correspondentService the correspondent service
+     * @param deliveryService      the delivery service
+     */
     @Autowired
     public DocumentController(DocumentServiceImpl documentService, CorrespondentServiceImpl correspondentService, DeliveryServiceImpl deliveryService) {
         this.documentService = documentService;
@@ -42,12 +50,24 @@ public class DocumentController {
         this.deliveryService = deliveryService;
     }
 
+    /**
+     * List all documents string.
+     *
+     * @param model the model
+     * @return the string
+     */
     @GetMapping(path = "/Documents")
     public String listAllDocuments(Model model) {
         model.addAttribute("documents", documentService.findAllDocuments());
         return "dashboard-documents";
     }
 
+    /**
+     * Add new document string.
+     *
+     * @param model the model
+     * @return the string
+     */
     @GetMapping(path = "/Documents/registry")
     public String addNewDocument(Model model) {
         model.addAttribute(new Document());
@@ -56,6 +76,16 @@ public class DocumentController {
         return "dashboard-document-add";
     }
 
+    /**
+     * Add new document form string.
+     *
+     * @param document        the document
+     * @param result          the result
+     * @param correspondentId the correspondent id
+     * @param deliveryId      the delivery id
+     * @param files           the files
+     * @return the string
+     */
     @PostMapping(path = "/Documents/registry")
     public String addNewDocumentForm(@Valid @ModelAttribute Document document,
                                      BindingResult result,
@@ -87,6 +117,13 @@ public class DocumentController {
         return "redirect:/Documents";
     }
 
+    /**
+     * Download document response entity.
+     *
+     * @param registrationId the registration id
+     * @return the response entity
+     * @throws FileNotFoundException the file not found exception
+     */
     @GetMapping("/Documents/document/d/{registrationId}")
     public ResponseEntity<ByteArrayResource> downloadDocument(@PathVariable String registrationId) throws FileNotFoundException {
         Document document = documentService.findDocumentByRegistrationId(registrationId);
@@ -96,6 +133,14 @@ public class DocumentController {
                 .body(new ByteArrayResource(document.getDocumentFile()));
     }
 
+    /**
+     * Gets document details.
+     *
+     * @param model          the model
+     * @param registrationId the registration id
+     * @return the document details
+     * @throws FileNotFoundException the file not found exception
+     */
     @GetMapping("/Documents/document/view/{registrationId}")
     public String getDocumentDetails(Model model, @PathVariable String registrationId) throws FileNotFoundException {
         model.addAttribute("documents", documentService.findDocumentByRegistrationId(registrationId));

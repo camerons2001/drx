@@ -65,11 +65,17 @@
             <artifactId>spring-boot-starter-validation</artifactId>
             <version>2.3.2.RELEASE</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.xhtmlrenderer/flying-saucer-pdf -->
+        <!-- https://mvnrepository.com/artifact/ognl/ognl -->
         <dependency>
-            <groupId>org.xhtmlrenderer</groupId>
-            <artifactId>flying-saucer-pdf</artifactId>
-            <version>9.1.20</version>
+            <groupId>ognl</groupId>
+            <artifactId>ognl</artifactId>
+            <version>3.2.15</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.itextpdf/html2pdf -->
+        <dependency>
+            <groupId>com.itextpdf</groupId>
+            <artifactId>html2pdf</artifactId>
+            <version>3.0.1</version>
         </dependency>
     </dependencies>
 

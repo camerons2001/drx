@@ -5,10 +5,11 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
+ * The interface Document repository.
+ *
  * @author Kamron Sultanov
  * @date July 15, 2020
  */
-
 @Repository
 public interface DocumentRepository extends CrudRepository<Document, String> {
 }

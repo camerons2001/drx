@@ -5,10 +5,11 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 /**
+ * The interface Delivery repository.
+ *
  * @author Kamron Sultanov
  * @date July 15, 2020
  */
-
 @Repository
 public interface DeliveryRepository extends CrudRepository<Delivery, Byte> {
 }
