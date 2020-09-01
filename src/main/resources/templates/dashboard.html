@@ -11,7 +11,7 @@
     <link rel="canonical" th:href="@{https://getbootstrap.com/docs/4.5/examples/sticky-footer/}">
 
     <!-- Bootstrap core CSS -->
-    <link th:href="@{/assets/dist/css/bootstrap.min.css}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/dist/css/bootstrap.min.css}">
 
     <style>
       .bd-placeholder-img {
@@ -30,8 +30,8 @@
       }
     </style>
     <!-- Custom styles for this template -->
-    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
-    <link th:href="@{/css/sticky-footer.css}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/dashboard.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/sticky-footer.css}">
   </head>
   <body>
     <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
@@ -78,8 +78,7 @@
         <h1 class="h2">DASHBOARD</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group mr-2">
-            <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
-            <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
+            <a type="button" class="btn btn-sm btn-outline-secondary" th:href="@{export/Chart}">Export</a>
           </div>
           <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
             <span data-feather="calendar"></span>
