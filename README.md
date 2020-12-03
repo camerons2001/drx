@@ -14,5 +14,4 @@
 ![alt text](https://github.com/camerons2001/drx/blob/master/docs/screenshots/doc-form.png "doc-from")
 
 ### CONTACTS
-EMAIL: cameronsultanov@gmail.com<br>
 LINKEDIN: www.linkedin.com/in/ksultanov2001
